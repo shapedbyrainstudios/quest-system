@@ -25,7 +25,6 @@ public class PlayerMovementController : MonoBehaviour
     private void Start() 
     {
         GameEventsManager.instance.inputEvents.onMovePressed += MovePressed;
-
         GameEventsManager.instance.playerEvents.onDisablePlayerMovement += DisablePlayerMovement;
         GameEventsManager.instance.playerEvents.onEnablePlayerMovement += EnablePlayerMovement;
     }
@@ -33,7 +32,6 @@ public class PlayerMovementController : MonoBehaviour
     private void OnDestroy()
     {
         GameEventsManager.instance.inputEvents.onMovePressed -= MovePressed;
-
         GameEventsManager.instance.playerEvents.onDisablePlayerMovement -= DisablePlayerMovement;
         GameEventsManager.instance.playerEvents.onEnablePlayerMovement -= EnablePlayerMovement;
     }
@@ -60,13 +58,6 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Update() 
     {
-        // velocity = InputManager.instance.GetMoveDirection().normalized * moveSpeed;
-
-        // if (movementDisabled) 
-        // {
-        //     velocity = Vector2.zero;
-        // }
-
         UpdateAnimations();
     }
 

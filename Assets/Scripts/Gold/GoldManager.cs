@@ -9,18 +9,24 @@ public class GoldManager : MonoBehaviour
 
     public int currentGold { get; private set; }
 
-    private void Start() 
+    private void Awake()
     {
         currentGold = startingGold;
-        
-        GameEventsManager.instance.goldEvents.onGoldGained += GoldGained;
-
-        GameEventsManager.instance.goldEvents.GoldChange(currentGold);
     }
 
-    private void OnDestroy() 
+    private void OnEnable() 
+    {
+        GameEventsManager.instance.goldEvents.onGoldGained += GoldGained;
+    }
+
+    private void OnDisable() 
     {
         GameEventsManager.instance.goldEvents.onGoldGained -= GoldGained;
+    }
+
+    private void Start()
+    {
+        GameEventsManager.instance.goldEvents.GoldChange(currentGold);
     }
 
     private void GoldGained(int gold) 

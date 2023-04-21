@@ -11,13 +11,13 @@ public class PlayerLevelUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI xpText;
     [SerializeField] private TextMeshProUGUI levelText;
 
-    private void Start()
+    private void OnEnable()
     {
         GameEventsManager.instance.playerEvents.onPlayerExperienceChange += PlayerExperienceChange;
         GameEventsManager.instance.playerEvents.onPlayerLevelChange += PlayerLevelChange;
     }
 
-    private void OnDestroy() 
+    private void OnDisable() 
     {
         GameEventsManager.instance.playerEvents.onPlayerExperienceChange -= PlayerExperienceChange;
         GameEventsManager.instance.playerEvents.onPlayerLevelChange -= PlayerLevelChange;

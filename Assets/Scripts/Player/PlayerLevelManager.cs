@@ -11,20 +11,26 @@ public class PlayerLevelManager : MonoBehaviour
     private int currentLevel;
     private int currentExperience;
 
-    private void Start()
+    private void Awake()
     {
         currentLevel = startingLevel;
         currentExperience = startingExperience;
-
-        GameEventsManager.instance.playerEvents.onExperienceGained += ExperienceGained;
-
-        GameEventsManager.instance.playerEvents.PlayerLevelChange(currentLevel);
-        GameEventsManager.instance.playerEvents.PlayerExperienceChange(currentExperience);
     }
 
-    private void OnDestroy() 
+    private void OnEnable()
+    {
+        GameEventsManager.instance.playerEvents.onExperienceGained += ExperienceGained;
+    }
+
+    private void OnDisable() 
     {
         GameEventsManager.instance.playerEvents.onExperienceGained -= ExperienceGained;
+    }
+
+    private void Start()
+    {
+        GameEventsManager.instance.playerEvents.PlayerLevelChange(currentLevel);
+        GameEventsManager.instance.playerEvents.PlayerExperienceChange(currentExperience);
     }
 
     private void ExperienceGained(int experience) 

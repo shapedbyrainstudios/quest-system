@@ -8,12 +8,12 @@ public class GoldUI : MonoBehaviour
     [Header("Components")]
     [SerializeField] private TextMeshProUGUI goldText;
 
-    private void Start() 
+    private void OnEnable() 
     {
         GameEventsManager.instance.goldEvents.onGoldChange += GoldChange;
     }
 
-    private void OnDestroy() 
+    private void OnDisable() 
     {
         GameEventsManager.instance.goldEvents.onGoldChange -= GoldChange;
     }
