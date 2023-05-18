@@ -33,7 +33,7 @@ public class QuestPoint : MonoBehaviour
     private void OnDisable()
     {
         GameEventsManager.instance.questEvents.onQuestStateChange -= QuestStateChange;
-        GameEventsManager.instance.inputEvents.onSubmitPressed += SubmitPressed;
+        GameEventsManager.instance.inputEvents.onSubmitPressed -= SubmitPressed;
     }
 
     private void SubmitPressed()
