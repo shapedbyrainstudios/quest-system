@@ -2,7 +2,7 @@
 
 This is a sample project that shows one way of building a Quest System in Unity.
 
-The branches in this repo follow the implementation for the video series. Each branch represents the state of the system for a given video. The videos can be found on the YouTube channel.
+The branches in this repo follow the implementation for the video series. Each branch represents the state of the system for a given video. The videos can be found on the below YouTube channel.
 
 `youtube.com/@ShapedByRainStudios`
 
